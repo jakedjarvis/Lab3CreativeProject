@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+		<script
+		  src="https://code.jquery.com/jquery-3.2.1.min.js"
+		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		  crossorigin="anonymous">
+	  	</script>
+		
+
+	    <!-- Latest compiled and minified CSS -->
+
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    
+
+
+
+
+	    <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+
+
+
+
+
+	    <!-- Latest compiled and minified JavaScript -->
+
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Course Name</h3>
+			</div>
+			<div class="col-md-4">
+				<h3>Letter Grade</h3>
+			</div>
+			<div class="col-md-4">
+				<h3>Number of Credits</h3>
+			</div>
+		</div>
+
+			<div ng-repeat="post in posts | orderBy: '-upvotes'">
+				
+				<div class="row">
+					<div class="col-md-4">
+						<label for="usr">Enter Class Name:</label>
+					  	<input type="text" class="form-control" id="usr">
+					</div>
+					<div class="col-md-4"  style="margin-top:25px">
+						  <select ng-change="updateGrade" ng-model="value" class="selectpicker">
+						  	<option value="">Select your letter grade</option>
+						    <option value="A">A</option>
+						    <option value="A-">A-</option>
+						    <option value="B+">B+</option>
+						    <option value="B">B</option>
+						    <option value="B-">B-</option>
+						    <option value="C+">C+</option>
+						    <option value="C">C</option>
+						    <option value="C-">C-</option>
+						    <option value="D+">D+</option>
+						    <option value="D">D</option>
+						    <option value="D-">D-</option>
+						    <option value="F">F</option>
+						  </select>
+					</div>
+					<div class="col-md-4">
+						<label for="usr">Enter Number of Credits:</label>
+					  	<input type="text" class="form-control" id="usr1">
+					</div>
+				</div>
+
+			</div>
+
+
+	</div>
+
+</body>
+</html>
