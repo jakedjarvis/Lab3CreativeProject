@@ -8,7 +8,8 @@
 		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 		  crossorigin="anonymous">
 	  	</script>
-		
+
+		<script src="gpa.js"></script>
 
 	    <!-- Latest compiled and minified CSS -->
 
@@ -36,29 +37,30 @@
 </head>
 <body>
 
-	<div class="container">
+	<div ng-app='app' ng-controller='mainCtrl' class="container">
+
+		<h1>GPA Calculator</h1>
 		
-		<div class="row">
+		<div class="row" style="padding-bottom: 10px">
 			<div class="col-md-4">
-				<h3>Course Name</h3>
+				<h3><u>Course Name</u></h3>
 			</div>
 			<div class="col-md-4">
-				<h3>Letter Grade</h3>
+				<h3><u>Letter Grade</u></h3>
 			</div>
 			<div class="col-md-4">
-				<h3>Number of Credits</h3>
+				<h3><u>Number of Credits</u></h3>
 			</div>
 		</div>
 
-			<div ng-repeat="post in posts | orderBy: '-upvotes'">
-				
+			<div ng-repeat="class in classes">
 				<div class="row">
 					<div class="col-md-4">
 						<label for="usr">Enter Class Name:</label>
 					  	<input type="text" class="form-control" id="usr">
 					</div>
 					<div class="col-md-4"  style="margin-top:25px">
-						  <select ng-change="updateGrade" ng-model="value" class="selectpicker">
+						  <select ng-change="updateGrade" ng-model="letter" class="selectpicker">
 						  	<option value="">Select your letter grade</option>
 						    <option value="A">A</option>
 						    <option value="A-">A-</option>
@@ -76,8 +78,20 @@
 					</div>
 					<div class="col-md-4">
 						<label for="usr">Enter Number of Credits:</label>
-					  	<input type="text" class="form-control" id="usr1">
+					  	<input value="{{class.Credits}}" ng-model="class.numCredits" type="text" class="form-control" id="usr1">
 					</div>
+				</div>
+			</div>
+
+
+
+			<div id="buttonsDiv">
+				<div style="padding-top: 15px">
+					<button id="addClassButton" type = "button" class = "btn btn-primary" ng-onclick="addClass()">Add Class</button>
+				</div>
+				<div id="displayGPA">
+					<h3>Your GPA:
+					<span><button id="calcButton" type="button" class="btn btn-primary" onclick="calcGPA()">Calculate</button></span></h3>
 				</div>
 
 			</div>
