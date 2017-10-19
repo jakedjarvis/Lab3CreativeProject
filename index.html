@@ -14,7 +14,7 @@
 	    <!-- Latest compiled and minified CSS -->
 
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    
+			<link rel="stylesheet" href="local.css">
 
 
 
@@ -40,7 +40,7 @@
 	<div ng-app='app' ng-controller='mainCtrl' class="container">
 
 		<h1>GPA Calculator</h1>
-		
+
 		<div class="row" style="padding-bottom: 10px">
 			<div class="col-md-4">
 				<h3><u>Course Name</u></h3>
@@ -53,14 +53,15 @@
 			</div>
 		</div>
 
-			<div ng-repeat="class in classes">
+			<div ng-repeat="class in classes" id="classInfo">
 				<div class="row">
 					<div class="col-md-4">
 						<label for="usr">Enter Class Name:</label>
-					  	<input type="text" class="form-control" id="usr">
+					  	<input type="text" class="form-control" id="usr" placeholder="Enter Class Name">
 					</div>
-					<div class="col-md-4" style="margin-top:25px">
-						  <select ng-change="calcGPA()" ng-model="class.Grade" class="form-control">
+					<div class="col-md-4"  style="margin-top:25px">
+
+						  <select ng-change="calcGPA()" ng-model="class.Grade" class="form-control" id="usr2">
 						  	<option value="">Select your letter grade</option>
 						    <option value="A">A</option>
 						    <option value="A-">A-</option>
@@ -78,19 +79,20 @@
 					</div>
 					<div class="col-md-4">
 						<label for="usr">Enter Number of Credits:</label>
-					  	<input ng-change="calcGPA()" ng-model="class.Credits" ng-model="class.numCredits" type="text" class="form-control" id="usr1">
+					  	<input  ng-model="class.Credits" ng-change="calcGPA()" type="text" class="form-control" id="usr1">
 					</div>
 				</div>
 			</div>
 
 
+
 			<div id="buttonsDiv">
 				<div style="padding-top: 15px">
-					<button id="addClassButton" type = "button" class = "btn btn-primary" ng-click="addClass()">Add Class</button>
+					<button id="addClassButton" type = "button" class = "btn btn-primary" ng-click="addClass()" style="width:100%;">Add Class</button>
+
 				</div>
 				<div id="displayGPA">
-					<h3>Your GPA: {{finalGPA}}
-					<span><button id="calcButton" type="button" class="btn btn-primary" ng-click="calcGPA()">Calculate</button></span></h3>
+					<h1>Your GPA: <br><span id="displayGpa">{{finalGPA}}</span></h1>
 				</div>
 
 			</div>
