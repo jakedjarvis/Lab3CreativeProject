@@ -59,8 +59,8 @@
 						<label for="usr">Enter Class Name:</label>
 					  	<input type="text" class="form-control" id="usr">
 					</div>
-					<div class="col-md-4"  style="margin-top:25px">
-						  <select ng-change="updateGrade" ng-model="letter" class="selectpicker">
+					<div class="col-md-4" style="margin-top:25px">
+						  <select ng-change="calcGPA()" ng-model="class.Grade" class="form-control">
 						  	<option value="">Select your letter grade</option>
 						    <option value="A">A</option>
 						    <option value="A-">A-</option>
@@ -78,20 +78,19 @@
 					</div>
 					<div class="col-md-4">
 						<label for="usr">Enter Number of Credits:</label>
-					  	<input value="{{class.Credits}}" ng-model="class.numCredits" type="text" class="form-control" id="usr1">
+					  	<input ng-change="calcGPA()" ng-model="class.Credits" ng-model="class.numCredits" type="text" class="form-control" id="usr1">
 					</div>
 				</div>
 			</div>
 
 
-
 			<div id="buttonsDiv">
 				<div style="padding-top: 15px">
-					<button id="addClassButton" type = "button" class = "btn btn-primary" ng-onclick="addClass()">Add Class</button>
+					<button id="addClassButton" type = "button" class = "btn btn-primary" ng-click="addClass()">Add Class</button>
 				</div>
 				<div id="displayGPA">
-					<h3>Your GPA:
-					<span><button id="calcButton" type="button" class="btn btn-primary" onclick="calcGPA()">Calculate</button></span></h3>
+					<h3>Your GPA: {{finalGPA}}
+					<span><button id="calcButton" type="button" class="btn btn-primary" ng-click="calcGPA()">Calculate</button></span></h3>
 				</div>
 
 			</div>
